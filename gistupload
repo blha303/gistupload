@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+from github3 import create_gist
+import sys
+try:
+  import readline
+except ImportError:
+  pass
+
+file = open(sys.argv[1], "r").read()
+
+files = {
+    'gist.txt' : {
+        'content': file
+        }
+    }
+gist = create_gist('Pasted', files)
+#print gist
+print(gist.html_url)
